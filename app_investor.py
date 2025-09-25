@@ -146,6 +146,7 @@ ofreciendo bowls de açaí y frutas frescas con excelente sabor y unit economics
 
 elif menu == "📈 Resumen Ejecutivo":
     st.header("Resumen Ejecutivo")
+    show_image("kpis.png", "KPIs clave (ejemplo; reemplazados por datos reales si cargas el Excel)")
     st.markdown("""
 - **Problema**: En campus universitarios hay abundancia de comida rápida poco saludable.
 - **Solución**: Bowls de **açaí** con toppings frescos, smoothies y snacks saludables.
@@ -169,7 +170,11 @@ elif menu == "📈 Resumen Ejecutivo":
 
 elif menu == "🥣 Producto & Menú":
     st.header("Producto & Menú")
-    show_image("menu.jpg", "Açaí base + frutas + toppings.")
+    col1, col2 = st.columns([1,1])
+    with col1:
+        show_image("menu.jpg", "Açaí base + frutas + toppings.")
+    with col2:
+        show_image("pricing.png", "Precios y tamaños (mockup)")
     st.markdown("""
 **Linea principal**:
 - **Açaí Bowl** (tamaños S/M/L), base de açaí con banana, toppings de frutas de temporada,
@@ -182,7 +187,12 @@ granola, yogurt, mantequilla de maní, coco, etc.
 
 elif menu == "📍 Ubicaciones & Go-to-Market":
     st.header("Ubicaciones & Go-to-Market")
-    show_image("store.jpg", "Universidades objetivo en Santa Cruz.")
+    col1, col2 = st.columns([1,1])
+    with col1:
+        show_image("store.jpg", "Universidades objetivo en Santa Cruz.")
+        show_image("floorplan.png", "Layout del kiosko (mockup)")
+    with col2:
+        show_image("map.png", "Mapa de expansión (mockup)")
     st.markdown("""
 **Fase 1**: 1 local en universidad de alto flujo (kiosko/stand modular).  
 **Fase 2**: Replicar en 2–3 campus adicionales + convenios con gimnasios.  
@@ -209,6 +219,7 @@ elif menu == "💸 Unit Economics":
 
 elif menu == "📊 Proyección 12 meses":
     st.header("Proyección 12 meses")
+    show_image("process.png", "Proceso y rotación (ilustrativo)")
     if forecast_df is None:
         st.info("Sube `Financial_Model_Acai_Lite.xlsx` para generar la proyección.")
     else:
@@ -261,9 +272,16 @@ elif menu == "💰 Ronda & Uso de Fondos":
 
 elif menu == "🖼️ Galería":
     st.header("Galería")
-    show_image("hero.jpg", "Marca & identidad")
-    show_image("store.jpg", "Local en campus (mockup)")
-    show_image("menu.jpg", "Propuesta de menú (mockup)")
+    colA, colB = st.columns(2)
+    with colA:
+        show_image("hero.jpg", "Marca & identidad")
+        show_image("pricing.png", "Tablero de precios (mockup)")
+        show_image("kpis.png", "Indicadores clave (poster)")
+    with colB:
+        show_image("store.jpg", "Local en campus (mockup)")
+        show_image("floorplan.png", "Layout kiosko (mockup)")
+        show_image("process.png", "Flujo de atención")
+    show_image("map.png", "Mapa de expansión (mockup)")
     st.caption("Reemplaza los mockups por fotos reales al avanzar el proyecto.")
 
 elif menu == "✉️ Contacto":
